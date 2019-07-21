@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainapp',
+    'rest_framework',
     'ckeditor'
 ]
 
@@ -114,6 +115,13 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# REST FRAMEWORK
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+    'rest_framework.renderers.JSONRenderer',
+    )
+}
 
 
 # Static files (CSS, JavaScript, Images)
