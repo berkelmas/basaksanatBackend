@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Proje, Atolye, Burs, Contact, GonulluBasvuru, BursBasvuru
+from .models import Proje, Atolye, Burs, Contact, GonulluBasvuru, BursBasvuru, Duyuru
 from django.contrib.auth.models import User, Group
 
 
@@ -14,6 +14,10 @@ admin.site.register(Atolye, AtolyeAdmin)
 class BursAdmin(admin.ModelAdmin):
     exclude = ('burs_slug',)
 admin.site.register(Burs, BursAdmin)
+
+class DuyuruAdmin(admin.ModelAdmin):
+    exclude = ('duyuru_slug',)
+admin.site.register(Duyuru, DuyuruAdmin)
 
 class ContactAdmin(admin.ModelAdmin):
     pass

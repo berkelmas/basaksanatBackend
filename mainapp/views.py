@@ -2,10 +2,10 @@ from rest_framework import generics
 
 from .serializers import ProjeSerializer, AtolyeSerializer, BursSerializer, \
                         ContactSerializer, GonulluBasvuruSerializer, BursBasvuruSerializer, \
-                        BursNameSerializer
+                        BursNameSerializer, DuyuruSerializer
 
-from .models import Proje, Atolye, Burs, Contact, GonulluBasvuru, BursBasvuru
-from .paginations import BursProjePagination, AtolyePagination
+from .models import Proje, Atolye, Burs, Contact, GonulluBasvuru, BursBasvuru, Duyuru
+from .paginations import BursProjePagination, AtolyePagination, DuyuruPagination
 
 class ProjeList(generics.ListAPIView):
     queryset = Proje.objects.all()
@@ -28,6 +28,11 @@ class AtolyeList(generics.ListAPIView):
     serializer_class = AtolyeSerializer
     pagination_class = AtolyePagination
 
+class DuyuruList(generics.ListAPIView):
+    queryset = Duyuru.objects.all()
+    serializer_class = DuyuruSerializer
+    pagination_class = DuyuruPagination
+
 class SingleProje(generics.RetrieveAPIView):
     queryset = Proje.objects.all()
     serializer_class = ProjeSerializer
@@ -35,6 +40,10 @@ class SingleProje(generics.RetrieveAPIView):
 class SingleBurs(generics.RetrieveAPIView):
     queryset = Burs.objects.all()
     serializer_class = BursSerializer
+
+class SingleDuyuru(generics.RetrieveAPIView):
+    queryset = Duyuru.objects.all()
+    serializer_class = DuyuruSerializer
 
 class AddContact(generics.CreateAPIView):
     serializer_class = ContactSerializer

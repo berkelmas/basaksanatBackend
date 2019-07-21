@@ -28,6 +28,13 @@ class BursNameSerializer(serializers.Serializer):
     burs_baslik = serializers.CharField()
     burs_aktiflik = serializers.BooleanField()
 
+class DuyuruSerializer(serializers.Serializer):
+    id = serializers.CharField()
+    duyuru_baslik = serializers.CharField()
+    duyuru_mesaj = serializers.CharField()
+    duyuru_tarihi = serializers.DateField()
+    duyuru_slug = serializers.SlugField()
+
 class ContactSerializer(serializers.Serializer):
     contact_name = serializers.CharField()
     contact_email = serializers.CharField()

@@ -64,6 +64,24 @@ class Burs(models.Model):
         self.burs_slug = slugify(unidecode(self.burs_baslik))
         super(Burs, self).save(*args, **kwargs)
 
+class Duyuru(models.Model):
+    duyuru_baslik = models.CharField(('Duyuru Başlığı'), max_length= 150)
+    duyuru_mesaj = models.TextField(('Duyuru Mesajı'))
+    duyuru_tarihi = models.DateField(('Duyuru Tarihi'))
+    duyuru_slug = models.SlugField()
+
+    class Meta:
+        verbose_name = 'Duyuru'
+        verbose_name_plural = 'Duyurular'
+        ordering = ('-duyuru_tarihi',)
+
+    def save(self, *args, **kwargs):
+        self.duyuru_slug = slugify(unidecode(self.duyuru_baslik))
+        super(Duyuru, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.duyuru_baslik
+
 class Contact(models.Model):
     contact_name = models.CharField(('İsim'), max_length= 150)
     contact_email = models.CharField(('Email Adresi'), max_length= 150)
